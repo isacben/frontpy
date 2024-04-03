@@ -1,4 +1,4 @@
-SIMPLE_TAGS = ["canvas", "h1", "h2", "h3", "p", "a", "div", "span", "select"]
+from xml.etree import ElementTree as ET
 
 def tag(name, *children) -> str:
     html = f'<{name}' 
@@ -13,16 +13,11 @@ def tag(name, *children) -> str:
 
     return html
 
-
-
-
-
 def div(children: str, props: str) -> str:
     div = '<div>' if props == '' else f'<div {props}>'
     return f'''{div}
             {children}
         </div>'''
-
 
 def h1(*children):
     return tag('h1', *children)
@@ -31,9 +26,10 @@ def div(*children):
     return tag('div', *children)
 
 def main():
-    print(div(h1('Hello world')))
+    #print(div(h1('Hello world')))
     # print(p('hello world'))
 
+    print(ET.tostring(ET.Element('div'), encoding="us-ascii", method="html"))
 
 if __name__ == "__main__":
     main()
