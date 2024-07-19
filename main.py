@@ -25,11 +25,15 @@ def h1(*children):
 def div(*children):
     return tag('div', *children)
 
+def Button():
+    return '<button>test</button>'
+
 def main():
     #print(div(h1('Hello world')))
     # print(p('hello world'))
 
     print(ET.tostring(ET.Element('div'), encoding="us-ascii", method="html"))
+    print(Button())
 
 if __name__ == "__main__":
     main()
